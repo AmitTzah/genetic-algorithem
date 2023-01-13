@@ -7,7 +7,7 @@ def genetic_algorithm(pop_size, mutation_rate, max_generations,
                       error_threshold, error_function, ranges,
                       parent_prop, additional_params, num_vars):
     """
-    A function that uses genetic algorithm to optimize the value of x that minimizes the error_function.
+    A function that uses genetic algorithm to optimize the value of the optimization variables that minimize the error_function.
     Args:
         pop_size (int): The size of the population of individuals that will be generated at the start of the algorithm
         mutation_rate (float): The degree of randomness that will be introduced to the x values of the new population each generation, as a value between 0 and 1
@@ -55,7 +55,7 @@ def genetic_algorithm(pop_size, mutation_rate, max_generations,
         population = new_population.copy()
         population.sort(key=lambda x: x[1])
         if population[0][1] < error_threshold:
-            print(f'Generation {i} did it!...\n')
+            print(f'Generation {i} did it!\n')
             break
 
     print(f'Fittest individual:{population[0]}\n')
