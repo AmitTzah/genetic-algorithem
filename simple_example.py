@@ -1,15 +1,18 @@
+# Simple example that explains how the algorithem works:
+
 import numpy as np
+import math
 
 
 def error_function(x):
 
-    return (1231*x**6 + x**5 + 3*x**4+12*x**3+x**2+12*x - 32 - 32)**2
+    return (math.sqrt(x) - 5)**2
 
 
 population = []
 
 for j in range(1, 10000):
-    random_float = np.random.uniform(-500, 500)
+    random_float = np.random.uniform(1, 500)
     population.append([random_float, error_function(random_float)])
 
 population.sort(key=lambda x: x[1])
@@ -27,6 +30,7 @@ for i in range(1, 2000):
 
     population = new_population.copy()
     population.sort(key=lambda x: x[1])
+
     if population[0][1] < 0.00000000001:
         print(f'Generation {i} did it!...\n')
         break
